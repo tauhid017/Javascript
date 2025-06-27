@@ -320,3 +320,108 @@ let x = p5.forEach((r) => {
     console.log(r);
 });
 ```
+
+
+## 25. async/await Function (Basic)
+
+Async functions return a promise, and `await` is used to pause the execution until the promise resolves.
+
+```js
+async function tauhd() {
+    return "hello tauhid";
+}
+
+async function jishu() {
+    throw "weak internet connection";
+    return "hello jishu";
+}
+
+jishu()
+  .then((result) => {
+    console.log("result", result);
+  })
+  .catch((error) => {
+    console.log("the error was:", error);
+  });
+```
+
+---
+
+## 26. Random Number with Promises and async/await
+
+Combining asynchronous behavior with `Promise` and `await`.
+
+```js
+function getNum() {
+    let num = Math.floor(Math.random() * 10) + 1;
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(num);
+            resolve();
+        }, 1000);
+    });
+}
+
+async function demo() {
+    await getNum();
+    await getNum();
+    await getNum();
+    await getNum();
+}
+```
+
+---
+
+## 27. JSON.parse for Parsing JSON
+
+`JSON.parse()` is used to convert a JSON string into a JavaScript object.
+
+```js
+let x = '{"fact":"All cats need taurine in their diet to avoid blindness.","length":140}';
+let y = JSON.parse(x);
+console.log(y.fact);
+```
+
+---
+
+## 28. Fetch API using .then()
+
+The Fetch API is used to make HTTP requests. The response must be converted to JSON.
+
+```js
+let url = "https://catfact.ninja/fact";
+
+fetch(url)
+  .then((res) => res.json())
+  .then((d) => {
+    console.log(d.fact);
+    return fetch(url);
+  })
+  .then((res) => res.json())
+  .then((da) => {
+    console.log(da.fact);
+  })
+  .catch((e) => {
+    console.log("Error:", e);
+  });
+```
+
+---
+
+## 29. Fetch API using async/await
+
+A cleaner syntax using `async/await` to handle fetch calls.
+
+```js
+let url = "https://catfact.ninja/fact";
+
+async function getFacts() {
+    try {
+        let res = await fetch(url);
+        let data = await res.json();
+        console.log(data.fact);
+    } catch (r) {
+        console.log(r);
+    }
+}
+```
