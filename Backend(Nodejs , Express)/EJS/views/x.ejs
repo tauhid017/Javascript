@@ -1,0 +1,18 @@
+<%- include('includes/head.ejs') %>
+  <body>
+    <h1>The username is @<%= d.name %></h1>
+    <h3>Followers: <%= d.followers %></h3>
+    <h3>Following: <%= d.following %></h3>
+    <h3>Posts:</h3>
+
+    <% for (let i = 0; i < d.posts.length; i++) { %>
+      <div style="margin-bottom: 20px;">
+        <img src="<%= d.posts[i].image %>" alt="some image" width="250"><br>
+        <p>Likes: <%= d.posts[i].likes %></p>
+        <p>Comments: <%= d.posts[i].comments %></p>
+      </div>
+    <% } %>
+    <%- include('includes/footer.ejs')%>
+  </body>
+</html>
+
