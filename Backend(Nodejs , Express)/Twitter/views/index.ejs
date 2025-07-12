@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter</title>
+  </head>
+  <body>
+    <div>
+        <% for(let i =0;i<posts.length;i++){ %>
+        <p>id:<%=posts[i].id%></p>
+        <p>username: @<%=posts[i].username%></p>
+        <p>Tweet :<%= posts[i].tweet %></p>
+        <a href="http://localhost:3000/post/edit/<%=posts[i].id  %>"><button>Edit</button></a>
+        <form method="post" action="/post/edit/<%=posts[i].id%>?_method=DELETE">
+            <button>Delete tweet</button>
+        </form>
+        
+  <%  } %>
+    </div>
+    <a href="http://localhost:3000/post/new"><button>Create a new post</button></a>
+    
+  </body>
+</html>
